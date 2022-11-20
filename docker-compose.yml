@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  apache_test:
+    image: apache_test:staging
+    restart: 'always'
+    build:
+      context: .
+      dockerfile: Dockerfile
+    
+    ports:
+      - '8080:80'
+   
+
+
+  mariadb:
+    image: "mariadb"
+    restart: 'always'
+    volumes: 
+      - "/var/lib/mysql/data"
+      #- "/var/lib/mysql/logs:${MARIADB_LOG_DIR}"
+      - /var/docker/mariadb/conf:/etc/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_DATABASE: "webapplication"
+      MYSQL_USER: "webapplication"
+      MYSQL_PASSWORD: "653rag9T"

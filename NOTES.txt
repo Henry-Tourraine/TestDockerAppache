@@ -1,0 +1,3 @@
+remove container -> docker rm CONTAINER
+build image -> docker build -t NAME:VERSION SOURCE_FOLDER
+run container docker run --name NEW_NAME -d -p HOST_PORT:CONTAINER_PORT NAME_IMAGE:VERSION
